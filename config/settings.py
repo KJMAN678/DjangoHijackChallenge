@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "hijack",
+    "hijack.contrib.admin",
+    "ecsite",
 ]
 
 MIDDLEWARE = [
@@ -46,6 +49,7 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "hijack.middleware.HijackUserMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
@@ -125,3 +129,8 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+HIJACK_LOGIN_REDIRECT_URL = '/'
+HIJACK_LOGOUT_REDIRECT_URL = '/admin/'
+HIJACK_ALLOW_GET_REQUESTS = True
+HIJACK_PERMISSION_CHECK = 'hijack.permissions.superusers_and_staff'
