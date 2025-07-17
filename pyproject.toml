@@ -1,0 +1,23 @@
+[project]
+name = "django_project"
+version = "0.1.0"
+description = "django project"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "Django==5.2.4",
+    "psycopg2-binary==2.9.10",
+]
+
+[tool.uv]
+link-mode = "copy"
+dev-dependencies = [
+    "ruff==0.12.2",
+    "pytest==8.4.1",
+    "django-debug-toolbar==5.2.0",
+    "pytest-django==4.11.1",
+    "factory-boy==3.3.3",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
